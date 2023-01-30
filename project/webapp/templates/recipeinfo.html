@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+    Recipe Info
+{% endblock %}
+
+{% block content %}
+<div class="row">
+
+  <div class="col-sm-6" 
+    style="background-color: azure; padding: 3%; text-align: center;">
+    <img src="{{ recipe['image'] }}" alt="recipepix" 
+      style="width: 380px; height: 310px; display: block; margin-top: 6%; margin-left: auto; margin-right: auto;">
+       
+  
+    </div>
+    <div class="col-sm-6" style="background-color: azure; padding: 4%;">
+      <h1><strong>{{ recipe["title"] }}</strong></h2>
+        <br>
+        <h4>Recipe by {{ recipe["sourceName"] }}.</h4>
+        <br>
+        <h5>Ready In {{ recipe["readyInMinutes"] }} minutes.</h5>
+        <br>
+        <h5>Servings: {{ recipe["servings"] }}</h5>
+        <a href="{{ recipe['sourceUrl'] }}" class="btn btn-info" target="_blank"
+        style="margin: auto; margin-top: 4%;">View Full Recipe</a>
+        <form id="recipeform" action="/favourites" method="post"><input type="text" name="recipeid" value="{{ recipe['id'] }}" style="display: none;">
+          <button class="btn btn-outline-success" type="submit" style="margin-top: 4%;">Add To Favourites</button>
+        </form>
+
+        
+    </div>
+
+    <div class="col-sm-12" style="background-color: azure; padding: 2%;">
+      <p><b><u>Summary:</u></b> {{ recipe["summary"]|safe }}</p>
+    </div>
+  
+
+{% endblock %}

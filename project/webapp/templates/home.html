@@ -1,0 +1,210 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% block head %}
+<link rel="stylesheet" href="static/styles.css">
+<link rel="stylesheet" href="static/notes.css">
+{% endblock %}
+
+
+<div>
+    <br>
+    <h2 style="text-align: center;">My <b>Food</b> Inventory</h2>
+    <br>
+</div>
+
+<!-- Accordion for my Food inventory -->
+<div class="accordion" id="accordionInv">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingInv">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" 
+       data-bs-target="#collapseInv" aria-expanded="true" aria-controls="collapseInv">
+        Food Inventory
+      </button>
+    </h2>
+    <div id="collapseInv" class="accordion-collapse collapse show" 
+     aria-labelledby="headingInv" data-bs-parent="#accordionInv">
+    <div class="accordion-body">
+
+    <table class="table table-hover">
+    
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Category</th>
+          <th scope="col">Action</th>        
+        </tr>
+        
+          <div>
+              <form action="/add-items" method="POST" id="addForm" style="display: none;">
+                  <label for="fname">Name</label>
+                  <input type="text" id="fname" name="fname" placeholder="Item Name...">
+                
+                  <label for="lname">Quantity</label>
+                  <input type="text" id="quantity" name="quantity" placeholder="Quantity">
+
+                  <label for="units">Unit</label>
+                  <select id="units" name="units">
+                    <option value=""></option>
+                    <option value="kg">kg</option>
+                    <option value="g">g</option>
+                    <option value="L">L</option>
+                    <option value="mL">mL</option>
+                  </select>
+                
+                  <label for="category">Category</label>
+                  <select id="category" name="category">
+                    <option value=""></option>
+                    <option value="Meats">Meats</option>
+                    <option value="Dairy & Eggs">Dairy & Eggs</option>
+                    <option value="Fruits & Veggies">Fruits & Veggies</option>
+                    <option value="Grains & Legumes">Grains & Legumes</option>
+                    <option value="Other">Other</option>
+                  </select>
+                
+                  <input type="submit" name="add" value="Add Item">
+                </form> 
+            </div>
+
+      </thead>
+      <br>
+      <tbody>
+        {% for item in items %}   
+        <tr>
+          
+          <td>{{item.id}}</td>
+          <td>{{item.fname}}</td>
+          <td>{{item.quantity}} {{item.units}}</td>
+          <td>{{item.category}}</td>
+          <th scope="row">
+
+            <button id="editBtn" data-toggle="modal" data-target="#modaledit{{item.id}}">Edit</button>
+            
+            <button id="delBtn" onclick="window.location.href='/delete/{{item.id}}';">Delete</button>
+          </th>
+          
+        </tr>
+        
+
+        <!-- Modal Edit -->
+  <div id="modaledit{{item.id}}" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <div class="modal-content">
+
+          <div class="modal-header">
+            <h4 class="modal-title">Update Information</h4>
+            <button type="button" class="btn btn-close" data-dismiss="modal"></button>
+          </div>
+
+          <div class="modal-body">
+            <form action="/update" method="POST">
+
+                <div class="form-group">
+                  <label for="fname">Name</label>          
+                    <input type="hidden"  name="id" value="{{item.id}}">
+                  <input type="text" id="fname" class="form-control1" name="fname" 
+                   placeholder="Item Name..." value="{{item.fname}}">
+                </div>
+
+                <div class="form-group">
+                  <label for="lname">Quantity</label>
+                  <input type="text" id="quantity" name="quantity" 
+                   placeholder="Quantity" value="{{item.quantity}}">
+                </div>
+
+                <div class="form-group">
+                  <label for="units">Unit</label>
+                  <select id="units" name="units">
+                    <option value="{{item.units}}">{{item.units}}</option>
+                    <option value="kg">kg</option>
+                    <option value="g">g</option>
+                    <option value="L">L</option>
+                    <option value="mL">mL</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="category">Category</label>
+                  <select id="category" name="category">
+                    <option value="{{item.category}}">{{item.category}}</option>
+                    <option value="Meats">Meats</option>
+                    <option value="Dairy & Eggs">Dairy & Eggs</option>
+                    <option value="Fruits & Veggies">Fruits & Veggies</option>
+                    <option value="Grains & Legumes">Grains & Legumes</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <button class="btn btn-primary" type="submit">Update</button>
+                </div>
+
+            </form>
+          </div>
+
+      </div>
+    </div>
+        {% endfor %}
+          
+      </tbody>   
+      </table>
+
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+    <!-- My Grocery List -->
+
+    <div>
+      <br>
+      <br>
+      <br>
+    </div>
+
+    <!-- Accordion for my Grocery list -->
+    <div class="col-12">
+      <div class="accordion" id="accordionGro">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingGro">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" 
+             data-bs-target="#collapseGro" aria-expanded="true" aria-controls="collapseGro">
+              My Notebook
+            </button>
+          </h2>
+
+          <div id="collapseGro" class="accordion-collapse collapse show" 
+           aria-labelledby="headingGro" data-bs-parent="#accordionGro">
+          <div class="accordion-body">
+          <!-- Grocery List -->
+          <div class="section-notes-list">
+            
+            <h3>My Grocery Notebook</h3>
+            <br>
+            <div class="input-btn">
+                <input type="text">
+                <button onclick="addNotes()">Add Note</button>
+            </div>
+            <div class="list-notes">
+                <ul>
+                    <!--Here go the notes + span-X-->
+                </ul>
+            </div>
+            <button class="remove-all" onclick="deleteAll()">Remove all</button>
+        </div>
+            
+          </div>
+
+        </div>
+      </div>
+      </div>
+    </div>
+    
+    <script src="/static/notes.js"></script>
+
+{% endblock %}                             		

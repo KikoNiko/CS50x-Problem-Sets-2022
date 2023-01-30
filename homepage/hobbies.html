@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <title>My Webpage</title>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="index.html">HOMEPAGE</a></li>
+                <li><a href="aboutme.html">ABOUT ME</a></li>
+                <li><a href="hobbies.html">HOBBIES</a></li>
+                <li><a href="final.html">FINAL</a></li>
+            </ul>
+        </nav>
+
+        <div class="container-fluid mt-3">
+
+          <div class="row">
+
+            <div class="col-sm-4">
+              <div class="container" id="hobbies">
+                <h1>Here are some of my Hobbies:<br>
+                  <span class="auto-type"></span></h1>
+              </div>
+            </div>
+
+            <div class="col-sm-8">
+              <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="images/photo.JPG" class="d-block w-100" alt="photo">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/hiking.jpg" class="d-block w-100" alt="hiking">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/music.jpg" class="d-block w-100" alt="music">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/hw.jpg" class="d-block w-100" alt="hollywood">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/gc.jpg" class="d-block w-100" alt="grand-canyon">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/algarve.jpg" class="d-block w-100" alt="portugal-algarve">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/viena.JPG" class="d-block w-100" alt="vienna">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/skyd.jpg" class="d-block w-100" alt="skydiving">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+                </div>
+            </div>
+
+          </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+        <script>
+          var typed = new Typed(".auto-type", {
+            strings: ["Travelling", "Hiking", "Playing Music", "Photography"],
+            typespeed: 200,
+            backspeed: 200,
+            loop: true
+          })
+        </script>
+
+    </body>
+</html>

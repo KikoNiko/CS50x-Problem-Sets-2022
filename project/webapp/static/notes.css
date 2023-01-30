@@ -1,0 +1,90 @@
+
+.section-notes-list{
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-notes-list h2{
+    font-size: 42px;
+    margin: 20px;
+}
+
+.input-btn{
+    display: flex;
+    margin-bottom: 10%;
+}
+.input-btn input{
+    width: 78%;
+    height: 34px;
+    border-radius: none;
+    border-color: #107758;
+    font-size: 19px;
+    padding-left: 17px;
+}
+.input-btn button{
+    width: 20%;
+    height: 35px;
+    border-radius: none;
+    border-color: #107758;
+    background-color: #107758;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.input-btn button:hover{
+    background-color: #fff;
+    color: #107758;
+    transition: all 0.5s 0s ease;
+}
+.input-btn button:not(:hover){
+    transition: all 0.5s 0s ease;
+}
+.list-notes{
+    margin-bottom: 11%;
+}
+.list-notes ul{
+    padding-left: 0;
+    margin: 0 13px;
+}
+.list-notes li{
+    background-color: whitesmoke;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.list-notes li span{
+    background-color: #107758;
+    padding: 0 9px; 
+    color: #fff;
+    cursor: pointer;
+    height: 30px;
+}
+.list-notes li span:hover{
+    background-color: red;
+}
+
+/*remove all btn*/
+.remove-all{
+    border-radius: none;
+    border-color: #107758;
+    background-color: #107758;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 9px 16px;
+}
+.remove-all:hover{
+    background-color: #fff;
+    color: #107758;
+    transition: all 0.5s 0s ease;
+}
+.remove-all:not(:hover){
+
+    transition: all 0.5s 0s ease;
+}
+

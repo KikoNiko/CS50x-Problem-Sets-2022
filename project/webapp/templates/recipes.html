@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+    
+    {% block title %}Recipes{% endblock %} 
+
+    {% block content%}
+    {% block head %}
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" 
+         rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
+        
+        <link rel="stylesheet" href="static/styles.css">
+        
+    {% endblock %}
+    
+
+    <br/>
+    <h3 style="text-align: center; font-family: sans-serif;">
+        <b>Here you can search for recipes by ingredients</b></h3>
+    <br/>
+    <div class="search-bar"></div>
+    <center>
+    <form class="search-form" method="POST">
+        
+        <input class="search-input" 
+            type="search" name="recipes"
+            placeholder=" Type in ingredients: e.g. chicken, pasta, tomatoes, parmesan">
+                
+        <button class="search-btn">Search</button>
+
+    </form>
+    </center>
+    </div>
+    <br><br>
+    {% if not recipes %}
+    <h5 align="center">Just for fun :)</h5>
+    <div class="container" 
+     style="padding: 8px; border-radius: 5px; width: 600px; background-color: whitesmoke;">
+        <center>
+            <h5" style="margin-top: 4%;">{{ joke }}</h5>
+        </center>
+    </div>
+    {% endif %}
+    
+
+
+    {% block div %}
+
+    <script>
+    function getRecipe(){
+        var myid = document.getElementById("recipeid").innerHTML;
+        window.alert(myid);
+        document.getElementById("recid").value = id;
+        document.getElementById("recipeform").submit();
+    }
+    </script>
+
+    <div class="container">
+        <div class="row">
+        {% for recipe in recipes %}
+        <div class="col" style="padding-top: 35px;">
+        <div class="card">
+        <img class="card-img-top" src="{{ recipe['image'] }}" alt="recipe image">
+        <div class="card-body">
+            <h5 class="card-title">{{ recipe["title"] }}</h5>
+            <p class="card-text" style="display: none;" id="recipeid">{{ recipe["id"] }}</p>
+            <form id="recipeform" action="/recipeinfo" method="post"><input type="text" name="recid" value="{{ recipe['id'] }}" style="display: none;">
+            <button class="btn btn-info" id="info-btn" type="submit">More Info</button>
+            </form>
+        </div>
+        </div>
+        </div>
+        {% endfor %}
+        </div>
+    </div>
+    <br><br><br>
+    
+    {% endblock %}
+
+    <p align="center"><cite>Information about all recipes is provided by </cite>
+        <a href="https://spoonacular.com/food-api">Spoonacular API</a></p>
+    
+
+    {% endblock %}

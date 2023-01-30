@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+    {% block title %}Favourites{% endblock %}
+
+    {% block content%}
+    <!-- <center>
+        <div class="col-8" style="margin-top: 5%;">
+            <h5>Random food fact:</h5>
+            <br>
+            <p style="font-size: large;">{{ trivia }}</p>
+        </div>  
+    </center> -->
+
+    
+    {% if recipe %}
+    <div class="col-sm-6" style="background-color: azure; padding: 4%;">
+        <img src="{{ recipe['image'] }}" alt="recipepix">
+        <h2><strong>{{ recipe["title"] }}</strong></h2>
+          <br>
+          <a href="{{ recipe['sourceUrl'] }}" class="btn btn-info" target="_blank"
+          style="margin: auto; margin-top: 4%;">View Full Recipe</a>
+    </div>
+
+    
+    {% else %}
+
+    <div class="col-12">
+        <center>
+            <br>
+            <h3>My Recipes</h3>
+            <br>
+        </center>
+    
+
+    <table class="table table-light">
+    
+        <thead class="table-info">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Recipe Name</th>
+            <th scope="col">Full Recipe</th>
+            <th scope="col">Nutritional Value</th>
+            <th scope="col"></th>         
+          </tr>
+        </thead>
+
+        <tbody>
+        {% for rec in favs %}
+
+        <td>{{rec.id}}</td>
+        <td><b>{{rec.title}}</b></td>
+        <td><a href="{{ rec['url'] }}" class="btn btn-outline-info" target="_blank">Full Recipe</a></td>
+        <td> 
+            <button class="btn btn-outline-success" data-toggle="modal" data-target="#modalnutri{{rec.id}}">Nutrients</button>
+        </td>
+        <td>
+            <button id="delBtn" onclick="window.location.href='/delete-rec/{{rec.id}}';">X</button>
+        </td>
+
+        <div id="modalnutri{{rec.id}}" class="modal fade" role="dialog">
+            <div class="modal-dialog">     
+              <div class="modal-content" style="background: seashell;">
+                <div class="modal-header">   
+                    <button type="button" class="btn btn-close" data-dismiss="modal"></button>
+                </div>
+        
+                <div class="modal-body">
+                    <center>
+                        <img src="https://api.spoonacular.com/recipes/{{rec.uri}}/nutritionLabel.png?&apiKey=02f0f5fef8a54a34a3c9fc26ed5c78b7" alt="nutritionLabel">
+                    </center>
+                </div>
+            </div>
+        </div>
+        </tbody>
+    </div>
+
+
+        {% endfor %}    
+
+    {% endif %}
+
+    {% endblock %}
+   

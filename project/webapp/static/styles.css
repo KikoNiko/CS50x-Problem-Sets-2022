@@ -1,0 +1,126 @@
+
+/* Style for The Recipes page */
+.search-bar {
+       position: relative;
+       display: inline-block;
+       box-sizing: border-box;
+       margin-top: 3%;
+       width: auto;
+       height: auto;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+}
+
+.search-form {
+       width: 600px;
+       height: 55px;
+       display: flex;
+
+}
+
+.search-input {
+       flex: 1;
+       background-color: whitesmoke;
+       border: ridge;
+       outline: none;
+       
+}
+
+.search-btn {
+       display: flex;
+       padding: 10px 25px;
+       border-radius: none;
+       border-color: #107758;
+       background-color: #107758;
+       color: #fff;
+       font-size: 18px;
+       font-weight: 700;
+       letter-spacing: 1px;
+       cursor: pointer;
+}
+.search-btn:hover{
+       background-color: #fff;
+       color: #107758;
+       transition: all 0.5s 0s ease;
+   }
+.search-btn:not(:hover){
+       transition: all 0.5s 0s ease;
+}
+
+
+.card {
+       width: 18rem;
+       height: 23rem;
+       
+       background-color: honeydew;
+       color: darkslategrey;
+        
+       /* Add shadows to create the "card" effect */
+       box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
+       transition: 0.3s;
+       }
+
+       /* On mouse-over, add a deeper shadow */
+.card:hover {
+       box-shadow: 0 10px 20px 0 rgba(0,0,0,0.2);
+}
+
+
+
+/* Style for Registration and Login pages */
+.form-container {
+       min-height: 100vh;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       padding: 20px;
+       padding-bottom:60px;
+       background: #eee;
+}
+
+.form-container form {
+       padding: 20px;
+       border-radius: 5px;
+       box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+       background-color: #fff;
+       text-align: center;
+       width: 500px;
+}
+
+.form-container form h3 {
+       font-size: 30px;
+       text-transform: uppercase;
+       margin-bottom: 10px;
+       color: #107758;
+}
+
+.form-container form h5 {
+       font-size: 17px;
+       text-transform: uppercase;
+       color: #107758;
+}
+
+.form-container form input {
+       width: 100%;
+       padding: 10px 15px;
+       font-size: 17px;
+       margin: 8px 0;
+       background: #eee;
+       border-radius: 5px;
+}
+
+.form-container form .form-btn {
+       background: #fff;
+       color: #107758;
+       text-transform: capitalize;
+       font-size: 20px;
+       cursor: pointer;
+       border-radius: 5px;
+       margin: 8px;
+}
+
+.form-container form .form-btn:hover {
+       background: #107758;
+       color: #fff;
+}

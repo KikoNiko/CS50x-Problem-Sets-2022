@@ -1,0 +1,31 @@
+sort1 uses: Bubble sort
+
+How do you know?:
+We first conclude that sort3 uses Selection sort and sort2 uses Merge therefore sort1 must use Bubble sort.
+But we also see that it takes significantly less time to sort the sorted list compared to sorting the random and reversed lists
+which tells us that it uses Bubble sort because we know that it's sorting algorithms are:
+O(n^2)  Omega(n)
+
+random50k - 7.72s
+reversed50k - 5.73s
+sorted50k - 0.53s
+
+sort2 uses: Merge sort
+
+How do you know?:
+Sorts the random list way faster than the others and takes approximately the same time to sort the sorted list.
+O(nlogn)  Omega(nlogn)
+
+random50k - 0.44s
+reversed50k - 0.69s
+sorted50k - 0.51s
+
+sort3 uses: Selection sort
+
+How do you know?:
+Takes longest to sort the sorted list and approximately the same time to sort the random list.
+O(n^2)  Omega(n^2)
+
+random50k - 3.30s
+reversed50k - 3.36s
+sorted50k - 3.423
